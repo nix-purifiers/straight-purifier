@@ -1,0 +1,47 @@
+;;; resolve.el --- Native Straight resolution -*- lexical-binding: t -*-
+;; SPDX-License-Identifier: MIT
+(require 'json)
+(setq user-emacs-directory (file-name-as-directory (getenv "STRAIGHT_PURIFIER_STAGE"))
+      straight-base-dir user-emacs-directory
+      straight-disable-native-compile t
+      straight-check-for-modifications nil)
+(let ((config (getenv "STRAIGHT_PURIFIER_CONFIG")))
+  (unless (equal (file-name-nondirectory config) "init.el")
+    (load (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory) nil t))
+  (load config nil t))
+(unless (featurep 'straight) (error "Configuration did not initialize Straight"))
+(unless (equal straight-profiles '((nil . "default.el")))
+  (error "Multiple/custom Straight profiles are not supported yet"))
+(defun straight-purifier--update-package (name)
+  (let ((recipe (gethash name straight--recipe-cache)))
+    (or (null (plist-get recipe :local-repo))
+        (and (straight-vc-fetch-from-remote recipe)
+             (straight-vc-merge-from-remote recipe)))))
+(let ((update (getenv "STRAIGHT_PURIFIER_UPDATE")))
+  (when update
+    (let ((packages (json-parse-string update :array-type 'list)))
+      (if packages
+          (mapc (lambda (name) (unless (straight-purifier--update-package name)
+                                (error "Native update failed for %s" name))) packages)
+        (when (straight--map-existing-repos-interactively #'straight-purifier--update-package)
+          (error "Native update failed")))
+      (straight--transaction-finalize)
+      (straight-rebuild-all))))
+(straight--transaction-finalize)
+(straight-freeze-versions t)
+(let (recipes repositories)
+  (maphash
+   (lambda (name recipe)
+     (let ((local (plist-get recipe :local-repo)))
+       (push `((name . ,name) (form . ,(prin1-to-string (cons (intern name) recipe)))) recipes)
+       (when (and local (eq (plist-get recipe :type) 'git) (not (assoc local repositories)))
+         (let ((default-directory (straight--repos-dir local)))
+           (push (cons local `((url . ,(string-trim (car (process-lines "git" "remote" "get-url" "origin"))))
+                              (rev . ,(string-trim (car (process-lines "git" "rev-parse" "HEAD")))))) repositories)))))
+   straight--recipe-cache)
+  (with-temp-file (getenv "STRAIGHT_PURIFIER_RESOLUTION")
+    (insert (json-encode
+             `((emacsVersion . ,emacs-version)
+               (recipes . ,(vconcat (sort recipes (lambda (a b) (string< (alist-get 'name a) (alist-get 'name b))))))
+               (recipeRepositories . ,(vconcat straight-recipe-repositories))
+               (repositories . ,repositories))))))

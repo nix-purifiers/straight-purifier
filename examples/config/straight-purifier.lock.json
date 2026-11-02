@@ -1,0 +1,121 @@
+{
+  "configHash": "3e591c3b2aa217b790cfa81da01e4f60ff34f6dd90fefc2e8638a669d5018a7b",
+  "contentHash": "602c37d3585384dda875ae617fcefe7de58005a02aea241203d76b0545c5ca2d",
+  "emacsVersion": "31.1",
+  "inputs": {
+    "init.el": "3e591c3b2aa217b790cfa81da01e4f60ff34f6dd90fefc2e8638a669d5018a7b"
+  },
+  "nativeHash": "1bbeba45e233c19314ab27524c84d23084f31648ad1f621524aefd764a38abc5",
+  "recipeRepositories": [
+    "org-elpa",
+    "melpa",
+    "gnu-elpa-mirror",
+    "nongnu-elpa",
+    "el-get",
+    "emacsmirror-mirror"
+  ],
+  "recipes": [
+    {
+      "form": "(el-get :type git :host github :repo \"dimitri/el-get\" :build nil :package \"el-get\" :local-repo \"el-get\")",
+      "name": "el-get"
+    },
+    {
+      "form": "(emacs :type built-in :package \"emacs\")",
+      "name": "emacs"
+    },
+    {
+      "form": "(emacsmirror-mirror :type git :host github :repo \"emacs-straight/emacsmirror-mirror\" :build nil :package \"emacsmirror-mirror\" :local-repo \"emacsmirror-mirror\")",
+      "name": "emacsmirror-mirror"
+    },
+    {
+      "form": "(gnu-elpa-mirror :type git :host github :repo \"emacs-straight/gnu-elpa-mirror\" :build nil :package \"gnu-elpa-mirror\" :local-repo \"gnu-elpa-mirror\")",
+      "name": "gnu-elpa-mirror"
+    },
+    {
+      "form": "(melpa :type git :host github :repo \"melpa/melpa\" :build nil :package \"melpa\" :local-repo \"melpa\")",
+      "name": "melpa"
+    },
+    {
+      "form": "(nongnu-elpa :type git :repo \"https://github.com/emacsmirror/nongnu_elpa.git\" :depth (full single-branch) :local-repo \"nongnu-elpa\" :build nil :package \"nongnu-elpa\")",
+      "name": "nongnu-elpa"
+    },
+    {
+      "form": "(org-elpa :local-repo nil :package \"org-elpa\" :type git)",
+      "name": "org-elpa"
+    },
+    {
+      "form": "(s :type git :host github :repo \"magnars/s.el\" :package \"s\" :local-repo \"s.el\")",
+      "name": "s"
+    },
+    {
+      "form": "(straight :type git :host github :repo \"radian-software/straight.el\" :files (\"straight*.el\") :branch \"main\" :package \"straight\" :local-repo \"straight.el\")",
+      "name": "straight"
+    }
+  ],
+  "repositories": {
+    "el-get": {
+      "commitObject": {
+        "gitlinks": [],
+        "object": "dHJlZSA3ZDhhMjZlYTg1OTk3ZTJhMDE3NGQwOTUxYWUzM2FjNjNiYjNiY2FkCnBhcmVudCA0NDdiN2VmYzlmY2EyOWEwODdmNGVjMjljNWQ4Y2NiNTgwY2QxYzc4CmF1dGhvciBBbGV4IE90dCA8YWxleG90dEBnbWFpbC5jb20+IDE3ODkyODc5ODUgKzAyMDAKY29tbWl0dGVyIEdpdEh1YiA8bm9yZXBseUBnaXRodWIuY29tPiAxNzg5Mjg3OTg1ICswMjAwCmdwZ3NpZyAtLS0tLUJFR0lOIFBHUCBTSUdOQVRVUkUtLS0tLQogCiB3c0ZjQkFBQkNBQVFCUUpxcGw0eENSQzFhUTd1dTVVaGxBQUFDNjhRQURqL0RYelJ1TEJqWHVuUTZTdE1jdWlyCiBkTlBEenVIL0xDWE5rYXZYVzA5dkp6V3BYejZOODAwa3dzdktsZ3lzUDlsRzREWXYwbnd3U1dnQWgyYjhGQ2xOCiAwbzExNzBtTlNBci9oM2VPSjJBRzRlQ2lJWVRTakNkNlFFM0tCMkdJa2U2cWlkWTBxMFBDRmNweVdMMFlYbzBmCiBFS0w2SStYZGpWUzdQRUVzSXd4U0QzSGZ0MUl6REd0Qmsrekw1UXREbVZHRExxc29FRjhkdnBMMHlhNllnaEY4CiB0V1ZpNU9ubE5MRGNZbGRmODc4V0VRckpTQmVLRDlsYWhWNG1SWXk1d09Lby96a3lMS2dnM08vKzJiQ2JHa01ECiBXUFlWWTMvTGRVRzcxZ1VSMHhWRTBUR05uZDVyRmxxVFNxWFlZSmFwYzl1bHdvdEo4aUgyZ2RMdytkelNYU3kzCiBhM0VTdllQQWRJR3ZrVE1xeHIrakFoMTBQdXQreXZwNXp0NmFmMS9WczJtNWdjY2xManQ1NDJDNUJkWG96SVEwCiB3NEkrRVdmMHEyTlFmR1ZlWmlpWkJFQzBUbzBLQzZaQ0FDN01sTkRWaStoelRvd3cvYy9iSXgyY082ekVsSVI5CiBRYUlJMExHTk9Fa1VnZDV4VFdwTlY1YTI3V0JOWGQ3TnlYREpzS29GTWZBUzN0YndYRWRLOWtXYWpUSllWSjJMCiAwT2dkVEYwTmFOS096enhGZUYrek90ai9BNXNCNHpnbXgxZXIvU3RUdnFHYTF5bUtPRnc5V3FiS09KdS9YQUF1CiB0eVh1UmMvRndVMlMzMGtjTDdWR1JybHZYeHVSYUx0d3Z5L1FUL254N1FFZm5JOFJtcGdTVHZnc1F3ZHEyT1U3CiB0YjFQNnA5OXdwQ0FGcnRZbHZJaQogPXUra0MKIC0tLS0tRU5EIFBHUCBTSUdOQVRVUkUtLS0tLQogCgpBZGRlZCBuZXcgcGFja2FnZXM6IFNwbHVuayAmIEtRTCBtb2RlcywgbWFya2Rvd24tdG8tb3JnICgjMzAyNyk="
+      },
+      "hash": "sha256-1xN7UDyTB6oaCKuWyNNE7xBLzsW82XC/afm24YU+hXI=",
+      "rev": "5c1e9c10860f35a1ee6e56b8d19505913b1c2ff2",
+      "url": "https://github.com/dimitri/el-get.git"
+    },
+    "emacsmirror-mirror": {
+      "commitObject": {
+        "gitlinks": [],
+        "object": "dHJlZSBlZGRhNjliYjk3ODg5NzBjNTgxODc4NWJhNGIwMGVlMDg5ODJjMTEwCnBhcmVudCA3OTliNTY0NjliMTRhNDQxZTExMzc3YjAzZTRiNDNiZWFhNDFmZDIyCmF1dGhvciBHTlUgRUxQQSBNaXJyb3IgQm90IDxjb250YWN0K2dudS1lbHBhLW1pcnJvckByYWRpYW4uY29kZXM+IDE3OTM0OTM3NTAgKzAwMDAKY29tbWl0dGVyIEdOVSBFTFBBIE1pcnJvciBCb3QgPGNvbnRhY3QrZ251LWVscGEtbWlycm9yQHJhZGlhbi5jb2Rlcz4gMTc5MzQ5Mzc1MCArMDAwMAoKVXBkYXRlIEVtYWNzbWlycm9yIG1pcnJvcgoKVGltZXN0YW1wOiAyMDI2LTExLTAxIDAwOjQyOjMwCkVtYWNzbWlycm9yIGNvbW1pdDogNDQ5ZDdlMWFlMGY2ZjZkMDA1NzJmYzhjYzAyMmNjY2E4NjkzYTNlNAo="
+      },
+      "hash": "sha256-aRFihxhfjEFEdiheKQRMwT66J7wz7ZXCT/y0BZTjPn4=",
+      "rev": "9a04dc6ea154272a0bbce3d7f690536d3a7d8a9a",
+      "url": "https://github.com/emacs-straight/emacsmirror-mirror.git"
+    },
+    "gnu-elpa-mirror": {
+      "commitObject": {
+        "gitlinks": [],
+        "object": "dHJlZSAxZDhkZWVlZWM0MjMxMTIyZGFmN2UyYmIyODgwYTFkOTMxYzQ0MzY5CnBhcmVudCBmNmMxYzdlY2VlNGRhMDI3OTA4YmIyZWIwOGQ5MzljMTcwY2NiNTRkCmF1dGhvciBHTlUgRUxQQSBNaXJyb3IgQm90IDxjb250YWN0K2dudS1lbHBhLW1pcnJvckByYWRpYW4uY29kZXM+IDE3OTMyMzQ2NTMgKzAwMDAKY29tbWl0dGVyIEdOVSBFTFBBIE1pcnJvciBCb3QgPGNvbnRhY3QrZ251LWVscGEtbWlycm9yQHJhZGlhbi5jb2Rlcz4gMTc5MzIzNDY1MyArMDAwMAoKVXBkYXRlIG1pcnJvciBsaXN0CgpUaW1lc3RhbXA6IDIwMjYtMTAtMjkgMDA6MDE6MTcK"
+      },
+      "hash": "sha256-4nK09twQ5SaYWgnnG2rMf+G4zVKrnCyB+HvbjiNFdGI=",
+      "rev": "5d18d900916c898d81c24116087b7d0e77d9f77e",
+      "url": "https://github.com/emacs-straight/gnu-elpa-mirror.git"
+    },
+    "melpa": {
+      "commitObject": {
+        "gitlinks": [],
+        "object": "dHJlZSBjYTljM2YxZGQ3M2VmMjZkNjdkMDJkNDVmMGVmOThmMDk0NzcxNDcyCnBhcmVudCBiODE4Mjc3OGM1NmE5MzdmM2EzZTAwODQ5MDhjNzNhNGU2MTJkYjJmCmF1dGhvciBDaHJpcyBSYXluZXIgPHJpc2N5QHVzZXJzLm5vcmVwbHkuZ2l0aHViLmNvbT4gMTc5MzU2NDQyMSAtMDgwMApjb21taXR0ZXIgQ2hyaXMgUmF5bmVyIDxyaXNjeUB1c2Vycy5ub3JlcGx5LmdpdGh1Yi5jb20+IDE3OTM1NjQ0MjEgLTA4MDAKCkNvcHkgRW1hY3MgQUdFTlRTLm1kOyByZXZpc2UgIlVzaW5nIEFJIiBpbiBDT05UUklCVVRJTkcub3JnCg=="
+      },
+      "hash": "sha256-aqONKQJqDfdtaJWYz68oDN4Y3AsdohwBK7QxRqYQmUo=",
+      "rev": "e308f8109772af67f928ebd89806e0545103f0f0",
+      "url": "https://github.com/melpa/melpa.git"
+    },
+    "nongnu-elpa": {
+      "commitObject": {
+        "gitlinks": [],
+        "object": "dHJlZSAwNjIyNjQ4NDY3ZjYyZDk0YmU3OGMwODg4MGQ2NmM0NzJiMjQyMDhjCnBhcmVudCBjMzkwOThkNWFiNGIxMjUyZWU0NGFlZmNmZDYwNDA0NGJjY2E3ODYxCmF1dGhvciBKb25hcyBCZXJub3VsbGkgPGpvbmFzQGJlcm5vdWwubGk+IDE3OTIyMjM0ODMgKzAyMDAKY29tbWl0dGVyIEpvbmFzIEJlcm5vdWxsaSA8am9uYXNAYmVybm91bC5saT4gMTc5MjIyMzcxNiArMDIwMAoKZWxwYS1wYWNrYWdlcyAoZmx4LCBmbHgtaWRvKTogVHJpbSA6aWdub3JlZC1maWxlcwoKVGhlIHVwc3RyZWFtIHJlcG9zaXRvcnkgbm93IGZlYXR1cmVzIGEgIi5lbHBhaWdub3JlIi4K"
+      },
+      "hash": "sha256-fvWDFJ+YBqddPmplaRXZ/viBYF0oc8lT0G5a2UnbwYE=",
+      "rev": "9b4684a9e33df2aabcbee85bd23e7386ca3f4273",
+      "url": "https://github.com/emacsmirror/nongnu_elpa.git"
+    },
+    "s.el": {
+      "commitObject": {
+        "gitlinks": [],
+        "object": "dHJlZSAxYWNhMmJmZDQwNWNlNGQ3NGU5MWU1NmZhOTg2OTU2NTY1OTNhMDU5CnBhcmVudCAxZjc5YmNiNzQyYmY1NzA5NmRkNGIxZTRiNzkwM2QxN2Q3YTdhNDVmCmF1dGhvciBKYXNvbiBNaWxraW5zIDxqYXNvbm0yM0BnbWFpbC5jb20+IDE3ODU2MzI4NzQgKzA3MDAKY29tbWl0dGVyIEdpdEh1YiA8bm9yZXBseUBnaXRodWIuY29tPiAxNzg1NjMyODc0ICswNzAwCmdwZ3NpZyAtLS0tLUJFR0lOIFBHUCBTSUdOQVRVUkUtLS0tLQogCiB3c0ZjQkFBQkNBQVFCUUpxYnBocUNSQzFhUTd1dTVVaGxBQUF5U1VRQURRSGxoTkNFNTRMSUFFVS83QzNMcUdJCiBRaExxOTJ2MjZCeWNTZk5iMHFMdW50MlpqTk1obVlLWHFPd1BjQlFoM3NuK05Zb0VPT2lqWk1EenZnQ2x4bGMxCiBOSWdWTFB4bVI0emtuRTVZaU9aMkxBcUxOVUVRYVhyS21JZjl2akdVYVkyQyt6RFVIQVUzTnNqcGpMaUgrcWJwCiBtSVFVSjF6Y04vbDF1cXE3c2h2TlgyNTBKSXBSVmEwVXZhWWRXYVpXL2hWQ3R5OFdMa2kvZ0tWMHo4ZHFBbjdlCiBDM0FmbDRBNU1rR3dSSHJFVnVZbE5mdjhubGdTaUNwckFaNXg2M3N3eHBXY2RZNVg5TWtYeTRlQTMrREtKem50CiBScG85MEk2MWtJaFRFQ1hxYnNSa1FabmRYSnU4OGpZeFd3Qjllb0xLVW15VWo2UnlMUEFsUWJ5UlJGQVBJQ2JGCiBxRENPS2ZkblZRUHFWaXF5LzJIMGhkU1ZNeFFKWmFEc1lGUGdsbGp2UG1CbnNFWTlHS09tdmdPQWFkTyttNVQvCiBUZ2lKOUZFUGVnYU5ZQjZRekFNQVA5dTZpdjFZZEN5Yk53TTRZc0phWjViN0swOURPSVpUQ3U5QXJLeXFxaWhrCiB2QzVrRkFjQ0RRYkhIVm90NkU4WW5oV2ZreFFRUGY5ajhyeWdOL2N6aFRhME5OdlVhb2h2bW5yRG4yc0NFcjdyCiBjYVM1TXFhRnhJQzVoa1hKaGprSlZuL0lyL1dpRjFTbUpQZXZYeFdXZ3EwaWNYaG11alUreEVCay9JWFRwWjNUCiAxNmNjd1crcE05cjFpQzFiMEU2bDVHWjFkY2xPSEhEYS9OWGNMall5cUZIWE12QWYyT0VWcHF1MGUxckllSDBGCiBtR1UremtYYk1xbTJ0d2pzanVCTgogPXhKZjkKIC0tLS0tRU5EIFBHUCBTSUdOQVRVUkUtLS0tLQogCgoxLjEzLjEgQWRkIGxhdGVzdCByZWxlYXNlIGJhZGdlIHRvIFJFQURNRQoKQWRkZWQgYmFkZ2UgZm9yIGxhdGVzdCByZWxlYXNlIHRvIFJFQURNRS4="
+      },
+      "hash": "sha256-C6T1Fh0t0YvcoMbTQpa3iRIMM0MV0f5HaZDhvmi/YaA=",
+      "rev": "d7c04b84d03481a1ed62ee13dbe595224ccbe57c",
+      "url": "https://github.com/magnars/s.el.git"
+    },
+    "straight.el": {
+      "commitObject": {
+        "gitlinks": [],
+        "object": "dHJlZSBjZjViZDY0NzZlNjRmOTkxOWZhYzQzOTRmYmMyYzk0NzBmZmIwM2E2CnBhcmVudCBhNzg0YzYxZDg4YzdlZDFlYjU4ZmM0ZDMyNTk1NGRiNDRhMmU5OGRlCmF1dGhvciBBbmRyZWEgQWxiZXJ0aSA8YS5hbGJlcnRpODJAZ21haWwuY29tPiAxNzkzMjkxMTEyICswMDAwCmNvbW1pdHRlciBSYWRvbiBSb3Nib3JvdWdoIDxyYWRvbkBpbnR1aXRpdmVleHBsYW5hdGlvbnMuY29tPiAxNzkzMjkxMTI1IC0wNzAwCgpBZGQgYSBzZWN0aW9uIHRvIHRoZSBSRUFETUUubWQgYWJvdXQgZXh0ZW5zaW9ucyAoIzEzMDQpCgpIaSBSYWRvbiwKClRoaXMgaXMgYSBmb2xsb3ctdXAgdG8gb3VyIGV4Y2hhbmdlIGluICMxMzAzLiBJIHdvdWxkIGxpa2UgdG8gc3VibWl0IGEKUFIgYWRkaW5nIGFuIGV4dGVuc2lvbiBzZWN0aW9uIHRvIHRoZSBSRUFETUUubWQsIGxpc3RpbmcgdGhlcmUKYHN0cmFpZ2h0LW92ZXJ2aWV3YC4gQSBmZXcgZGVjaXNpb25zIEkgdG9vazoKCi0gSSBkZWNpZGVkIHRvIGxpc3QgZXh0ZW5zaW9ucyB3aXRoIGFuIGVudHJ5IGluIHRoZSBUT0MuIFRoZSBUT0MgaXMKYWxyZWFkeSB2ZXJ5IGxvbmcgYW5kIGFkZGluZyBvbmUgaXRlbSBkb2VzIG5vdCBtYWtlIGl0IG11Y2ggbG9uZ2VyLiBPZgpjb3Vyc2UsIGlmIHlvdSBwcmVmZXIgYSBidWxsZXQtcG9pbnQgc3R5bGUsIGl0IGlzIGFsc28gb2sgdG8gcmVtb3ZlIGl0CmZyb20gdGhlIFRPQy4KLSBJIGFkZGVkIGEgc3RhdGVtZW50IGZvciBmdXR1cmUgY29udHJpYnV0b3JzIHRvIG9wZW4gZmlyc3QgYSBkaXNjdXNzaW9uCmluIHRoZSBkaXNjdXNzaW9uIHNlY3Rpb24uIElmIHlvdSBkb24ndCBsaWtlIHRoZSBzdGF0ZW1lbnQsIGZlZWwgZnJlZSB0bwpjaGFuZ2UgaXQgb3IgZHJvcCBpdC4KCklmIHlvdSB3YW50IHRvIG1ha2UgY2hhbmdlcywgeW91IGNhbiBkcm9wIGhlcmUgYW4gZWRpdGVkIGJsb2NrLCBhbmQgSQp3aWxsIGZvcmNlLXB1c2ggYSBuZXcgY29tbWl0LiBPciBvdGhlcndpc2UsIGZlZWwgZnJlZSB0byBmb3JjZS1wdXNoIG9uCm15IGNvbW1pdC9icmFuY2ggaWYgeW91IGZpbmQgaXQgZmFzdGVyLgoKQ2hlZXJzLApBbmRyZWE="
+      },
+      "hash": "sha256-OW4m+m8YcNX7FE/6SkKfcLtDV2KYfhiyMquRUaEUpBw=",
+      "rev": "3ad4414072ba512e39e19e8a7101bdfcb8318410",
+      "url": "https://github.com/radian-software/straight.el.git"
+    }
+  },
+  "version": 1
+}

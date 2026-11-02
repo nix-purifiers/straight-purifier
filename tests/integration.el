@@ -1,0 +1,18 @@
+;;; integration.el --- Locked Straight tests -*- lexical-binding: t -*-
+(require 'ert)
+(straight-use-package 's)
+(require 's)
+(ert-deftest straight-purifier-native-package ()
+  (should (equal (s-trim "  locked  ") "locked"))
+  (should (string-prefix-p "/nix/store/" (symbol-file 's-trim))))
+(ert-deftest straight-purifier-new-package-rejected ()
+  (should-error (straight-use-package '(unlocked :type git :host github :repo "example/unlocked"))))
+(ert-deftest straight-purifier-native-update-rejected ()
+  (should-error (straight-thaw-versions)))
+
+(ert-deftest straight-purifier-editor-definition ()
+  (require 'find-func)
+  (let* ((location (find-function-noselect 's-trim))
+         (source (buffer-file-name (car location))))
+    (should (string-prefix-p "/nix/store/" source))
+    (should (string-suffix-p "s.el" source))))
