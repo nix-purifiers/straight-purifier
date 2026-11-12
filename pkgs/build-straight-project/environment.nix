@@ -53,7 +53,7 @@ let
   siteStart = writeText "straight-site-start.el" ''
     ;;; site-start.el --- Locked Straight packages -*- lexical-binding: t -*-
     (add-to-list 'exec-path "${git}/bin")
-    (load "${../lisp/straight-purifier.el}" nil t)
+    (load "${../../lisp/straight-purifier.el}" nil t)
     (setq straight-purifier--nix-delivered t)
     (straight-purifier--activate "@environment@")
   '';

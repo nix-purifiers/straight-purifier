@@ -21,11 +21,11 @@
       shared = lib: import (purifier + "/nix/lib") { inherit lib; };
       overlay = final: prev: {
         straight-purifier = final.lib.makeScope final.newScope (scope: {
-          cli = scope.callPackage ./nix/cli.nix {
+          cli = scope.callPackage ./pkgs/straight-purifier/default.nix {
             nixpkgsSrc = nixpkgs;
             purifierSrc = purifier;
           };
-          buildStraightProject = scope.callPackage ./nix/build-project.nix { purifier = shared final.lib; };
+          buildStraightProject = scope.callPackage ./pkgs/build-straight-project/default.nix { purifier = shared final.lib; };
         });
       };
       pkgsFor =
@@ -37,7 +37,7 @@
     in
     {
       overlays.default = overlay;
-      lib.straight-purifier.readLock = import ./nix/read-lock.nix { lib = nixpkgs.lib; };
+      lib.straight-purifier = import ./lib-overlays/default { lib = nixpkgs.lib; };
       packages = forAll (system: {
         default = (pkgsFor system).straight-purifier.cli;
         cli = self.packages.${system}.default;

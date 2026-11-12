@@ -17,10 +17,10 @@ let
   };
 in
 if target == "environment" then
-  (pkgs.callPackage ./build-project.nix { inherit purifier; } args).packages.environment
+  (pkgs.callPackage ../pkgs/build-straight-project/default.nix { inherit purifier; } args).packages.environment
 else if target == "runtime" then
   pkgs.runCommand "straight-runtime" { } ''ln -s @runtime@ "$out"''
 else if target == "release" then
-  (pkgs.callPackage ./build-project.nix { inherit purifier; } args).release
+  (pkgs.callPackage ../pkgs/build-straight-project/default.nix { inherit purifier; } args).release
 else
   throw "straight-purifier: unknown realization target ${target}"
