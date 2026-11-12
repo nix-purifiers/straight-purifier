@@ -35,7 +35,7 @@ let
     filter = srcFilter;
   };
   lock = purifier.checkLock (
-    (import ./read-lock.nix { inherit lib; }) {
+    (import ../../lib-overlays/default/read-lock.nix { inherit lib; }) {
       inherit
         src
         lockFile

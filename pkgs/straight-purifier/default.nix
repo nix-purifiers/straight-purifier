@@ -16,12 +16,12 @@
 stdenvNoCC.mkDerivation {
   pname = "straight-purifier";
   version = "0.1.0";
-  src = ../.;
+  src = ../..;
   nativeBuildInputs = [ makeWrapper ];
   dontBuild = true;
   installPhase = ''
     mkdir -p "$out/bin" "$out/lib/straight-purifier" "$out/share/emacs/site-lisp"
-    cp -r straight_purifier nix lisp "$out/lib/straight-purifier/"
+    cp -r straight_purifier nix lib-overlays pkgs lisp "$out/lib/straight-purifier/"
     cp lisp/straight-purifier.el "$out/share/emacs/site-lisp/"
     install -m755 bin/straight-purifier "$out/bin/straight-purifier"
     substituteInPlace "$out/lib/straight-purifier/nix/realize.nix" \
